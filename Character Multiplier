@@ -1,0 +1,70 @@
+package TextProcessingEx;
+
+import java.util.Scanner;
+
+public class CharacterMultiplier {
+    public static void main(String[] args) {
+         Scanner scanner = new Scanner(System.in);
+
+         String input = scanner.nextLine();
+
+         String [] wordsToMultiply = input.split(" ");
+         String text1 = wordsToMultiply[0];
+         String text2 = wordsToMultiply[1];
+
+
+         multiplyString(text1,text2);
+    }
+
+    public static void multiplyString(String text1, String text2){
+        int sum = 0;
+
+
+        if(text1.length()== text2.length()){
+            for (int i = 0; i < text1.length() ; i++) {
+                int result =(int)(text1.charAt(i)) * (int)(text2.charAt(i));
+                sum += result;
+
+            }
+
+
+        }else if(text1.length() > text2.length()){
+
+            int diff = text1.length() - text2.length();
+
+            for (int i = text1.length()-1; i >text1.length()-1-diff ; i--) {
+                int result =(int)(text1.charAt(i)) *1;
+               sum += result;
+
+            }
+            for (int i = 0; i < text2.length() ; i++) {
+                int result =(int)(text1.charAt(i)) * (int)(text2.charAt(i));
+                sum += result;
+
+
+            }
+           // System.out.println(sum
+
+
+
+        }else {
+
+            int diff = text2.length() - text1.length();
+
+            for (int i = text2.length()-1; i >text2.length()-1-diff ; i--) {
+                int result =(int)(text2.charAt(i)) *1;
+                sum += result;
+
+            }
+            for (int i = 0; i < text1.length() ; i++) {
+                int result =(int)(text1.charAt(i)) * (int)(text2.charAt(i));
+                sum += result;
+
+
+            }
+
+        }
+
+        System.out.println(sum);
+}
+}
